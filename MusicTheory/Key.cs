@@ -25,16 +25,22 @@ public class Key(KeyValuePair<int, string> key)
     {
         get
         {
-            var allScales = new Dictionary<Mode, List<string>>
+            var allScales = new Dictionary<Mode, List<string>>();
+
+            foreach(Mode mode in Mode.GetValues(typeof(Mode)))
             {
-                { Mode.Ionian, GetScale(Mode.Ionian) },
-                { Mode.Aeolian, GetScale(Mode.Aeolian) },
-                { Mode.Dorian, GetScale(Mode.Dorian) },
-                { Mode.Phrygian, GetScale(Mode.Phrygian) },
-                { Mode.Lydian, GetScale(Mode.Lydian) },
-                { Mode.Mixolydian, GetScale(Mode.Mixolydian) },
-                { Mode.Locrian, GetScale(Mode.Locrian) }
-            };
+                allScales.Add(mode, GetScale(mode));
+            }
+            //var allScales = new Dictionary<Mode, List<string>>
+            //{
+            //    { Mode.Ionian, GetScale(Mode.Ionian) },
+            //    { Mode.Aeolian, GetScale(Mode.Aeolian) },
+            //    { Mode.Dorian, GetScale(Mode.Dorian) },
+            //    { Mode.Phrygian, GetScale(Mode.Phrygian) },
+            //    { Mode.Lydian, GetScale(Mode.Lydian) },
+            //    { Mode.Mixolydian, GetScale(Mode.Mixolydian) },
+            //    { Mode.Locrian, GetScale(Mode.Locrian) }
+            //};
             return allScales;
         }
     }
@@ -57,39 +63,43 @@ public class Key(KeyValuePair<int, string> key)
         switch (mode)
         {
             case Mode.Ionian:
-                result = GenerateScale(ionian);
+                result = GenerateScale(ionian, key.Value);
                 break;
             case Mode.Aeolian:
-                result = GenerateScale(aeolian);
+                result = GenerateScale(aeolian, key.Value);
                 break;
             case Mode.Dorian:
-                result = GenerateScale(dorian);
+                result = GenerateScale(dorian, key.Value);
                 break;
             case Mode.Phrygian:
-                result = GenerateScale(phrygian);
+                result = GenerateScale(phrygian, key.Value);
                 break;
             case Mode.Lydian:
-                result = GenerateScale(lydian);
+                result = GenerateScale(lydian, key.Value);
                 break;
             case Mode.Mixolydian:
-                result = GenerateScale(mixolydian);
+                result = GenerateScale(mixolydian, key.Value);
                 break;
             case Mode.Locrian:
-                result = GenerateScale(locrian);
+                result = GenerateScale(locrian, key.Value);
                 break;
         }
         return result;
     }
 
-    private List<string> GenerateScale(char[] steps)
+    private List<string> GenerateScale(char[] steps, string root)
     {
         var scale = new List<string>();
-        var root = Root;
+        
         var notes = _useFlats ? Notes.FlatNotes : Notes.SharpNotes;
 
         if (!notes.ContainsValue(root))
         {
             int rootIndex = FindRootIndex(root);
+            if(rootIndex < 0)
+            {
+                throw new ArgumentException("Root not found.", nameof(root));
+            }
             root = notes[rootIndex];
         }
 
@@ -115,9 +125,16 @@ public class Key(KeyValuePair<int, string> key)
 
     private int FindRootIndex(string root)
     {
-        bool notUseFlats = !_useFlats;
-        var notes = notUseFlats ? Notes.FlatNotes : Notes.SharpNotes;
-        int rootIndex = notes.Where(x => x.Value == root).First().Key;
+        var notes = !_useFlats ? Notes.FlatNotes : Notes.SharpNotes;
+        int rootIndex = -1;
+        foreach (var step in notes)
+        {
+            if(step.Value.Equals(root))
+            {
+                rootIndex = step.Key;
+                break;
+            } 
+        }
         return rootIndex;
     }
 }
