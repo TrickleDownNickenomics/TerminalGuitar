@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TerminalGuitar", "TerminalGuitar\TerminalGuitar.csproj", "{9E967F60-ECD3-4A51-978A-D7FC3B845F78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9CFBE297-B41B-4A2F-80BD-052EA952C59A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicTheoryLibrary", "MusicTheory\MusicTheoryLibrary.csproj", "{91EBBE94-8792-4454-A6E1-EEC1FA7BB5C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Guitar", "Guitar", "{D8B512F1-C6DB-4363-BC96-F5F45923A121}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MusicTheory", "MusicTheory", "{96A69671-CA4E-4289-8F6C-8167B34CAF10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5E6EEC1C-0DA1-4C12-BCC1-2C5031E744FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicTheoryTests", "MusicTheoryTests\MusicTheoryTests.csproj", "{A0EFFA0B-C023-495D-9EFE-DF7276CF5C49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E967F60-ECD3-4A51-978A-D7FC3B845F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E967F60-ECD3-4A51-978A-D7FC3B845F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E967F60-ECD3-4A51-978A-D7FC3B845F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E967F60-ECD3-4A51-978A-D7FC3B845F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91EBBE94-8792-4454-A6E1-EEC1FA7BB5C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EBBE94-8792-4454-A6E1-EEC1FA7BB5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EBBE94-8792-4454-A6E1-EEC1FA7BB5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EBBE94-8792-4454-A6E1-EEC1FA7BB5C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0EFFA0B-C023-495D-9EFE-DF7276CF5C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0EFFA0B-C023-495D-9EFE-DF7276CF5C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0EFFA0B-C023-495D-9EFE-DF7276CF5C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0EFFA0B-C023-495D-9EFE-DF7276CF5C49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E967F60-ECD3-4A51-978A-D7FC3B845F78} = {9CFBE297-B41B-4A2F-80BD-052EA952C59A}
+		{91EBBE94-8792-4454-A6E1-EEC1FA7BB5C2} = {96A69671-CA4E-4289-8F6C-8167B34CAF10}
+		{D8B512F1-C6DB-4363-BC96-F5F45923A121} = {9CFBE297-B41B-4A2F-80BD-052EA952C59A}
+		{96A69671-CA4E-4289-8F6C-8167B34CAF10} = {9CFBE297-B41B-4A2F-80BD-052EA952C59A}
+		{A0EFFA0B-C023-495D-9EFE-DF7276CF5C49} = {5E6EEC1C-0DA1-4C12-BCC1-2C5031E744FD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4F45493-190B-4FBD-A043-64009E6773D7}
+	EndGlobalSection
+EndGlobal
